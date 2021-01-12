@@ -32,15 +32,15 @@ const personalMovieDB = {
     private: false
 };
 
-const a = prompt("One of the recently seen fims?", "");
-      b = prompt("Please rate it", "From 0 to 10");
-      c = prompt("One of the recently seen fims?", "");
+const a = prompt("One of the recently seen fims?", ""),
+      b = prompt("Please rate it", "From 0 to 10"),
+      c = prompt("One of the recently seen fims?", ""),
       d = prompt("Please rate it", "From 0 to 10");
 
 // personalMovieDB.movies = recentMovie + ": " + movRate;
 // alert(personalMovieDB.movies);
 // console.log(personalMovieDB);
 
-personalMovieDB.movies.a = b;
-personalMovieDB.movies.c = d;
+personalMovieDB.movies[a] = b;
+personalMovieDB.movies[c] = d;
 console.log(personalMovieDB);
