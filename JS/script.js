@@ -39,7 +39,7 @@ const personalMovieDB = {
 
 function detectPersonalLevel() {
     if (personalMovieDB.count < 10) {
-        console.log('Too little');
+        console.log('Loser');
     } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
         console.log('Classic');
     } else if (personalMovieDB.count >= 30) {
