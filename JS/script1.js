@@ -1,38 +1,59 @@
-if (4) {
-    console.log('ok');
-} else {
-    console.log('Error');
-}
+'use strict';
 
+const str = 'teSt';
+const arr = [1, 2, 3];
 
-// if (num < 49) {
-//     console.log('Error');
-// } else if (num > 100) {
-//     console.log('Too much');
-// } else {
-//     console.log('Ok');
-// }
+// console.log(str[2] = 'd');
 
-// (num === 50) ? console.log('Ok') : console.log('Error');
+console.log(str.toLowerCase());
+console.log(str);
 
-let num = '50';
+let fruit = "Some fruit";
 
-// while (num < 55) {
+console.log(fruit.indexOf("q"));
+
+const logg = "Hello world";
+
+console.log(logg.substr(6, 3));
+
+const num = 12.2;
+console.log(Math.round(num));
+
+const test = "12.2px";
+// console.log(parseInt(test));
+console.log(parseFloat(test));
+
+// let num = 20;
+
+// function showFirstMessage(text) {
+//     console.log(text);
+//     let num = 10;
 //     console.log(num);
-//     num++;
 // }
 
-// do {
-//     console.log(num);
-//     num++;
+// showFirstMessage("Hello world!");
+// console.log(num);
+
+// function calc (a, b) {
+//     return (a + b);
 // }
-// while (num < 55);
 
-for (let i = 1; i < 10 ; i++) {
-    if (i === 6) {
-        // break;
-        continue;
-    }
+// console.log(calc(4, 3));
+// console.log(calc(5, 6));
+// console.log(calc(10, 6));
 
-    console.log(i);
-}
+// function ret() {
+//     let num = 50;
+//     return num;
+// }
+
+// const anotherNum = ret ();
+// console.log(anotherNum);
+
+// const logger = function() {
+//     console.log('Hello');
+// };
+
+// logger();
+
+// const calcs = (a, b) => { return a + b; };

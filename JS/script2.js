@@ -16,23 +16,58 @@
 
 // Код возьмите из предыдущего домашнего задания
 
-const numberOfFilms = +prompt("How many movies you had seen?", "");
-console.log(numberOfFilms);
+
+
+const numberOfFilms = prompt("How many movies have you seen?", "");
 
 const personalMovieDB = {
-    count: numberOfFilms, 
-    movies:{}, 
-    actors:{},
-    genres:[],
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
     private: false
 };
 
-const a = prompt("One of the recently seen fims?", ""),
-      b = prompt("Please rate it", "From 0 to 10"),
-      c = prompt("One of the recently seen fims?", ""),
-      d = prompt("Please rate it", "From 0 to 10");
+for (let i = 0; i < 2; i++) {
+    const a = prompt('One of viewed films', ''),
+          b = prompt('How many scores?', '');
+    
+    if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+        personalMovieDB.movies[a] = b;
+        console.log('done');
+    } else {
+        console.log('error');
+        i--;
+    }
+}
 
-
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
 console.log(personalMovieDB);
+
+
+// const personalMovieDB = {
+//     count: numberOfFilms, 
+//     movies:{}, 
+//     actors:{},
+//     genres:[],
+//     private: false
+// };
+
+// for (let i = 0; i < 3; i++) {
+//     const a = prompt("One of the recently seen fims?", ""),
+//           b = prompt("Please rate it", "From 0 to 10");
+    
+//     personalMovieDB.movies[a] = b;
+
+//     if (a == null) {
+//         const a = +prompt("How many movies you had seen?", "");
+//     } else if (a == undefined) {
+//         const a = +prompt("How many movies you had seen?", "");
+//     } else if (a.length >= 10) {
+//         const a = +prompt("How many movies you had seen?", "");
+//     } else {
+//         console.log(numberOfFilms);
+//     }
+
+
+// }
+// console.log(personalMovieDB);

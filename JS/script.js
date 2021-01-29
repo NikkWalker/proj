@@ -1,28 +1,16 @@
-/* Задание на урок:
+'use strict';
 
-1) Создать переменную numberOfFilms и в неё поместить ответ от пользователя на вопрос:
-'Сколько фильмов вы уже посмотрели?'
+let numberOfFilms;
 
-2) Создать объект personalMovieDB и в него поместить такие свойства:
-    - count - сюда передается ответ на первый вопрос
-    - movies - в это свойство поместить пустой объект
-    - actors - тоже поместить пустой объект
-    - genres - сюда поместить пустой массив
-    - privat - в это свойство поместить boolean(логическое) значение false
+function start() {
+    numberOfFilms = +prompt("How many movies you had seen?", "");
 
-3) Задайте пользователю по два раза вопросы:
-    - 'Один из последних просмотренных фильмов?'
-    - 'На сколько оцените его?'
-Ответы стоит поместить в отдельные переменные
-Записать ответы в объект movies в формате: 
-    movies: {
-        'logan': '8.1'
+    while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+        numberOfFilms = +prompt("How many movies you had seen?", "");
     }
+}
 
-Проверить, чтобы все работало без ошибок в консоли */
-
-const numberOfFilms = +prompt("How many movies you had seen?", "");
-console.log(numberOfFilms);
+start();
 
 const personalMovieDB = {
     count: numberOfFilms, 
@@ -32,15 +20,105 @@ const personalMovieDB = {
     private: false
 };
 
-const a = prompt("One of the recently seen fims?", ""),
-      b = prompt("Please rate it", "From 0 to 10"),
-      c = prompt("One of the recently seen fims?", ""),
-      d = prompt("Please rate it", "From 0 to 10");
+// function rememberMyFilms() {
+//     for (let i = 0; i < 2; i++) {
+//         const a = prompt("One of the recently seen fims?", ""),
+//               b = prompt("Please rate it", "From 0 to 10");
+    
+//         if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+//             personalMovieDB.movies[a] = b;
+//             console.log('done');
+//         } else {
+//             console.log('error');
+//             i--;
+//         }
+//     }
+// }
 
-// personalMovieDB.movies = recentMovie + ": " + movRate;
-// alert(personalMovieDB.movies);
+// rememberMyFilms();
+
+function detectPersonalLevel() {
+    if (personalMovieDB.count < 10) {
+        console.log('Too little');
+    } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+        console.log('Classic');
+    } else if (personalMovieDB.count >= 30) {
+        console.log('Cineman');
+    } else {
+        console.log('error');
+    }
+}
+
+detectPersonalLevel();
+
 // console.log(personalMovieDB);
 
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
-console.log(personalMovieDB);
+// function checkPrivate() {
+//     if (personalMovieDB.private == false) {
+//         console.log(personalMovieDB);
+//         console.log('pidari');
+
+//     } else {
+//         console.log('error');
+//         console.log('pidari');
+//     }
+// }
+
+// checkPrivate();
+
+function showMyDB (hidden) {
+    if (!hidden) {
+        console.log(personalMovieDB);
+    }
+}
+
+showMyDB(personalMovieDB.private);
+
+function writeYourGenres() {
+    for (let i = 1; i <= 3; i++) {
+        personalMovieDB.genres[i - 1] = prompt(`Your favourite genre under the number ${i}`, "");
+    }
+}
+
+writeYourGenres();
+
+// function writeYourGenres() {
+   
+//     for (let i = 0; i < 3; i++) {
+//         const a = prompt(`Your favourite genre under the number ${i+1}`, "");
+//         if (a != null && a != '' && a.length < 50) {
+//             personalMovieDB.genres[i] = a;
+//             console.log('done');
+//         } else {
+//             console.log('error');
+//             i--;
+//         }
+//     }
+// }
+
+// writeYourGenres();
+
+
+// let i = 0;
+// while (i < 3) {
+//     let a = prompt("One of the recently seen fims?", ""),
+//         b = prompt("Please rate it", "From 0 to 10");
+//     if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+//             personalMovieDB.movies[a] = b;
+//     }
+//     i++;
+// }   
+
+// let i = 0;
+// do {
+//     const a = prompt("One of the recently seen fims?", ""),
+//           b = prompt("Please rate it", "From 0 to 10");
+//     if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+//         personalMovieDB.movies[a] = b;
+//         console.log('done');
+//     } else {
+//         console.log('error');
+//         i--;
+//     }
+//     i++;
+// } while (i < 2);
