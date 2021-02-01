@@ -1,24 +1,124 @@
 'use strict';
 
-let numberOfFilms;
-
-function start() {
-    numberOfFilms = +prompt("How many movies you had seen?", "");
-
-    while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
-        numberOfFilms = +prompt("How many movies you had seen?", "");
-    }
-}
-
-start();
-
 const personalMovieDB = {
-    count: numberOfFilms, 
+    count: 0, 
     movies:{}, 
     actors:{},
     genres:[],
-    private: false
+    private: false,
+    start: function () {
+        personalMovieDB.count = +prompt("How many movies you had seen?", "");
+
+        while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+            personalMovieDB.count = +prompt("How many movies you had seen?", "");
+        }
+    },
+    remMyFilms: function() {
+        for (let i = 0; i < 2; i++) {
+                    const a = prompt("One of the recently seen fims?", ""),
+                          b = prompt("Please rate it", "From 0 to 10");
+                
+                    if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+                        personalMovieDB.movies[a] = b;
+                        console.log('done');
+                    } else {
+                        console.log('error');
+                        i--;
+                    }
+                }
+    },
+    detPersLev: function() {
+        if (personalMovieDB.count < 10) {
+            console.log('Loser');
+        } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+            console.log('Classic');
+        } else if (personalMovieDB.count >= 30) {
+            console.log('Cineman');
+        } else {
+            console.log('error');
+        }
+    },
+    showMyDBase: function(hidden) {
+        if (!hidden) {
+            console.log(personalMovieDB);
+        }
+    },
+    writeGenres: function() {
+        let i;
+        // for (i = 1; i <= 3; i++) {
+        //     personalMovieDB.genres[i - 1] = prompt(`Your favourite genre under the number ${i}`, "");
+        // }
+        // while (personalMovieDB.genres == '' || personalMovieDB.genres == null) {
+        //     console.log('Your data is incorrect');
+        //     i--;
+        //     }
+        let genres = prompt('Type genres, separated with comma').toLowerCase();
+
+        if (genres === '' || genres == null) {
+            console.log('Wrong data');
+            i--;
+        } else {
+            personalMovieDB.genres = genres.split(',');
+            personalMovieDB.genres.sort();
+        }
+
+        personalMovieDB.genres.forEach((item, i) => {
+            console.log(`Favourite genre No ${i+1} is ${item}`);
+        });
+    },
+    toggleVisibleMyDB: function() {
+        if (personalMovieDB.private == false) {
+            personalMovieDB.private = true;
+        } else if (personalMovieDB.private == true) {
+            personalMovieDB.private = false;
+        } else {
+            console.log('error');
+        }
+    }
 };
+
+console.log(personalMovieDB);
+personalMovieDB.toggleVisibleMyDB();
+personalMovieDB.showMyDBase(personalMovieDB.private);
+
+// personalMovieDB.remMyFilms();
+
+// personalMovieDB.writeGenres();
+// personalMovieDB.genres.forEach(function(item, i, genres) {
+//     console.log(`Favourite genre No ${i+1} is ${item}`);
+// });
+
+
+// function detectPersonalLevel() {
+//     if (personalMovieDB.count < 10) {
+//         console.log('Loser');
+//     } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+//         console.log('Classic');
+//     } else if (personalMovieDB.count >= 30) {
+//         console.log('Cineman');
+//     } else {
+//         console.log('error');
+//     }
+// }
+
+// detectPersonalLevel();
+
+// function showMyDB (hidden) {
+//     if (!hidden) {
+//         console.log(personalMovieDB);
+//     }
+// }
+
+// showMyDB(personalMovieDB.private);
+
+// function writeYourGenres() {
+//     for (let i = 1; i <= 3; i++) {
+//         personalMovieDB.genres[i - 1] = prompt(`Your favourite genre under the number ${i}`, "");
+//     }
+// }
+
+// writeYourGenres();
+
 
 // function rememberMyFilms() {
 //     for (let i = 0; i < 2; i++) {
@@ -37,19 +137,7 @@ const personalMovieDB = {
 
 // rememberMyFilms();
 
-function detectPersonalLevel() {
-    if (personalMovieDB.count < 10) {
-        console.log('Loser');
-    } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
-        console.log('Classic');
-    } else if (personalMovieDB.count >= 30) {
-        console.log('Cineman');
-    } else {
-        console.log('error');
-    }
-}
 
-detectPersonalLevel();
 
 // console.log(personalMovieDB);
 
@@ -66,21 +154,6 @@ detectPersonalLevel();
 
 // checkPrivate();
 
-function showMyDB (hidden) {
-    if (!hidden) {
-        console.log(personalMovieDB);
-    }
-}
-
-showMyDB(personalMovieDB.private);
-
-function writeYourGenres() {
-    for (let i = 1; i <= 3; i++) {
-        personalMovieDB.genres[i - 1] = prompt(`Your favourite genre under the number ${i}`, "");
-    }
-}
-
-writeYourGenres();
 
 // function writeYourGenres() {
    

@@ -1,59 +1,30 @@
 'use strict';
 
-const str = 'teSt';
-const arr = [1, 2, 3];
+let str = 'some';
+let strObj = new String(str);
 
-// console.log(str[2] = 'd');
+// console.log(typeof(str));
+// console.log(typeof(strObj));
 
-console.log(str.toLowerCase());
-console.log(str);
+console.dir([1, 2, 3]);
 
-let fruit = "Some fruit";
+const soldier = {
+    health: 400,
+    armor: 100,
+    sayHello: function() {
+        console.log('Hello');
+    }
+};
 
-console.log(fruit.indexOf("q"));
+const john = Object.create(soldier);
 
-const logg = "Hello world";
-
-console.log(logg.substr(6, 3));
-
-const num = 12.2;
-console.log(Math.round(num));
-
-const test = "12.2px";
-// console.log(parseInt(test));
-console.log(parseFloat(test));
-
-// let num = 20;
-
-// function showFirstMessage(text) {
-//     console.log(text);
-//     let num = 10;
-//     console.log(num);
-// }
-
-// showFirstMessage("Hello world!");
-// console.log(num);
-
-// function calc (a, b) {
-//     return (a + b);
-// }
-
-// console.log(calc(4, 3));
-// console.log(calc(5, 6));
-// console.log(calc(10, 6));
-
-// function ret() {
-//     let num = 50;
-//     return num;
-// }
-
-// const anotherNum = ret ();
-// console.log(anotherNum);
-
-// const logger = function() {
-//     console.log('Hello');
+// const john = {
+//     health: 100
 // };
 
-// logger();
+// john.__proto__ = soldier;
 
-// const calcs = (a, b) => { return a + b; };
+// Object.setPrototypeOf(john, soldier);
+
+// console.log(john.armor);
+john.sayHello();
