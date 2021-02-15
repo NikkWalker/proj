@@ -1,0 +1,29 @@
+button {
+    height: 30px;
+    width: 70px;
+    background-color: yellow;
+    appearance: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.red {
+    background-color: red;
+}
+
+#first {
+    background-color: grey;
+    height: 30px;
+    padding: 10px;
+}
+
+.circle {
+    width: 500px;
+    height: 500px;
+    border-right: 1px solid #f00;
+    border-radius: 0% 50% 50% 0%;
+}
